@@ -17,6 +17,9 @@ Meet up with Software Engineers: front-end, back-end, and full-stack; to discuss
 <details>
   <summary> Month 1 – 2 </summary>
 Back-end and front-end meet with their respective teams and partition the listed tasks amongst the individuals. During this time period, each team respectively will start the implementation process before the full-stack starts looking at the interaction between the teams. This is meant for the back-end and front-end developers to get a proof of concept for the full-stack to start working on.
+### Tasks To Be Completed:
+Front End: Create web pages, use universal text format
+Back End: Set up databases, connect databases, start creating payment API
   </details>
 
 <details>
