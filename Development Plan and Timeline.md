@@ -20,7 +20,16 @@ Back-end and front-end meet with their respective teams and partition the listed
   </details>
 
 <details>
-  <summary> Month 3 – 4 </summary>
-Full-stack developers start integrating back-end and front-end systems and verify that they work in unison. Back-end and front-end teams continue to develop beyond the proof of concept and work more toward full implementation. This is a pre-testing stage to make sure that the teams are on the same page. These developers can flex between the teams as necessary.
-Present the project to the client, make sure it functions as desired. Also serves as extra time to clean up loose ends, bugs, etc.
+  <summary> Month 3 – 6 </summary>
+  Full-stack developers start integrating back-end and front-end systems and verify that they work in unison. Back-end and front-end teams continue to develop beyond the proof of concept and work more toward full implementation. This is a pre-testing stage to make sure that the teams are on the same page. These developers can flex between the teams as necessary.
+  </details>
+
+<details>
+  <summary> Month 7 – 8 </summary>
+  Present the project to the client, make sure it functions as desired. Also serves as extra time to clean up loose ends, bugs, etc.
+  </details>
+
+<details>
+  <summary> Month 9 – 12 </summary>
+  **Flex Time: This period is a built in buffer in the event that the 8 month period is not sufficient for the team. Avoid taking more time beyond Month 12.**
   </details>
