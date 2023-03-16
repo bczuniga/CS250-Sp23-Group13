@@ -1,3 +1,5 @@
-# Title Page
+# Software Design Specification
 ## By Vincent Chu, Cameron Cobb, Brendel Zuniga
-### San Diego State University, CS 250: Introduction to Software Systems, Professor Miranda Parker
+### San Diego State University
+### CS 250: Introduction to Software Systems
+### Professor Miranda Parker
