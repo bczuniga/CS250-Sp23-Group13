@@ -8,6 +8,7 @@ classDiagram
     rentalCar ..> color
     rentalLocation --o "0..n" rentalCar : 0..n
     customer --|> user
+    employee --|> user
     
     class user {
         String name
@@ -22,6 +23,15 @@ classDiagram
         bool rentalAgreement
         bool rentalInsurance
         transaction[] rentalHistory
+    }
+    
+    class employee {
+        rentalLocation location
+        int employeeID
+        
+        checkCustomer(Customer) void
+        checkAvailableFleet(rentalLocation) rentalCar[]
+        setCPM(rentalCar, double) bool
     }
 
     class rentalCar {
