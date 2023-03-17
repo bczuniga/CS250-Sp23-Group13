@@ -17,6 +17,8 @@ classDiagram
     Customer --o "1" GPSLocation : 1
     Customer --|> User
     Employee --|> User
+    Employee ..> RentalCar
+    Employee ..> RentalLocation
     
     class User {
         String name
@@ -34,13 +36,13 @@ classDiagram
         bool rentalInsurance
         transaction[] rentalHistory
         PaymentInfo storedPayment
-        String currAddress
+        GPSLocation currLocation
         
         getDistance(rentalLocation) double
         signAgreement() bool
         updatePayment(paymentInfo() bool
         getRentalHistory() transaction[]
-        searchForLocation(currAddress) GPS
+        searchForLocation(String) GPS
     }
     
     class Employee {
