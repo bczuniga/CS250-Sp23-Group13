@@ -6,6 +6,8 @@ UML Class Diagram
 classDiagram
     rentalCar ..> carBody
     rentalCar ..> color
+    rentalLocation --o 0..n rentalCar
+    
     class user {
         String name
         String email
@@ -38,7 +40,20 @@ classDiagram
         getDetails() String
         setMake(String) void
         setModel(String) void
-        setColor() void
+        setColor(String) void
+        setCarBody(String) void
+        setYear(int) void
+        setNumSeats(int) void
+    }
+    
+    class rentalLocation {
+        rentalCar[] availableCars
+        int numAvailableCars
+        String address
+        int numEmployees
+        double rentalFee
+        
+        getHoursOperation() String
     }
 
     class carBody {
