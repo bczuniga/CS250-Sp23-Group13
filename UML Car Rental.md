@@ -6,7 +6,7 @@ UML Class Diagram
 classDiagram
     rentalCar ..> carBody
     rentalCar ..> color
-    rentalLocation --o 0..n rentalCar
+    rentalLocation --o "0..n" rentalCar : 0..n
     
     class user {
         String name
