@@ -7,6 +7,7 @@ classDiagram
 
     RentalCar ..> CarBody
     RentalCar ..> Color
+    RentalCar ..> FuelType
     RentalLocation --o "0..n" RentalCar : 0..n
     RentalLocation --o "1..n" Employee : 1..n
     Transaction --o "1" PaymentInfo : 1
@@ -142,4 +143,13 @@ classDiagram
         GOLD
         YELLOW
     }
+    
+    class FuelType {
+        <<enumeration>>
+        GAS
+        HEV
+        PHEV
+        BEV
+        FCEV
+}
 ```
