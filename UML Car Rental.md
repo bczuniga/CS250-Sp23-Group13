@@ -115,7 +115,6 @@ classDiagram
         setDestinationCoord(Pair<double, double>) bool
     }
     
-    % enumerators
     class CarBody {
         <<enumeration>>
         SEDAN
