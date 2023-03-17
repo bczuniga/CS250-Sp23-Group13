@@ -27,6 +27,7 @@ classDiagram
         String currAddress
         
         getDistance(rentalLocation) double
+        signAgreement() bool
     }
     
     class employee {
