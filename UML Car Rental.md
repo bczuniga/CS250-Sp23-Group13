@@ -7,6 +7,7 @@ classDiagram
     rentalCar ..> carBody
     rentalCar ..> color
     rentalLocation --o "0..n" rentalCar : 0..n
+    customer --|> user
     
     class user {
         String name
