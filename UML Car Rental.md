@@ -28,6 +28,9 @@ classDiagram
         
         getDistance(rentalLocation) double
         signAgreement() bool
+        updatePayment(paymentInfo() bool
+        getRentalHistory() transaction[]
+        searchForLocation(currAddress) GPS
     }
     
     class employee {
