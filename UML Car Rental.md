@@ -21,7 +21,7 @@ classDiagram
         
         changeEmail() bool
         changePassword() bool
-        checkAvailableCars(rentalLocation): Map<rentalCars>
+        checkAvailableCars(rentalLocation) Map<rentalCars>
     }
 
     class Customer {
