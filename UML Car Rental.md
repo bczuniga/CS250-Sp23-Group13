@@ -1,8 +1,10 @@
 ---
 Title
 ---
+
 ```mermaid
 classDiagram
+	rentalCar ..> carBody
 	class user {
 		String name
 		String email
@@ -10,12 +12,14 @@ classDiagram
 		changeEmail() bool
 		changePassword() bool
 	}
+	
 	class customer {
 		int age
 		bool rentalAgreement
 		bool rentalInsurance
 		transaction[] rentalHistory
 	}
+	
 	class rentalCar {
 		String make
 		String model
@@ -28,5 +32,24 @@ classDiagram
 		Date unavailableDates
 		int odometer
 		double costPerMile
+		
+		isAvailable(String) bool
+		getDetails() String
+        	setMake(String) void
+        	setModel(String) void
+        	setColor() void
 	}
+	
+    class carBody {
+        <<enumeration>>
+        SEDAN
+	COUPE
+	HATCHBACK
+	SUV
+	CROSSOVER
+	TRUCK
+	MINIVAN
+    }
+    
+    class
 ```
