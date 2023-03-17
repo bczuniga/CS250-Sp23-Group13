@@ -1,0 +1,32 @@
+---
+Title
+---
+```mermaid
+classDiagram
+	class user {
+		String name
+		String email
+		String password
+		changeEmail() bool
+		changePassword() bool
+	}
+	class customer {
+		int age
+		bool rentalAgreement
+		bool rentalInsurance
+		transaction[] rentalHistory
+	}
+	class rentalCar {
+		String make
+		String model
+		String color
+		String carBody
+		int year
+		int numSeats
+		double MPG/e
+		String fuelType
+		Date unavailableDates
+		int odometer
+		double costPerMile
+	}
+```
