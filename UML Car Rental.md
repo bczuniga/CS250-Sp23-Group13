@@ -107,12 +107,7 @@ classDiagram
     }
     
     class GPSLocation {
-        Pair<double, double> CurrentCoord
-        Pair<double, double> DestinationCoord
-        
-        getClosestRoute() double
-        setCurrentCoord(Pair<double, double>) bool
-        setDestinationCoord(Pair<double, double>) bool
+
     }
     
     class CarBody {
