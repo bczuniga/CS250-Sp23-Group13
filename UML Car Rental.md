@@ -4,26 +4,32 @@ UML Class Diagram
 
 ```mermaid
 classDiagram
-    rentalCar ..> carBody
-    rentalCar ..> color
-    rentalLocation --o "0..n" rentalCar : 0..n
-    customer --|> user
-    employee --|> user
+
+    % Relationships
+    RentalCar ..> CarBody
+    RentalCar ..> Color
+    RentalLocation --o "0..n" RentalCar : 0..n
+    RentalLocation --o "1..n" Employee : 1..n
+    Transaction --o "1" PaymentMethod: 1
+    Customer --|> User
+    Employee --|> User
     
-    class user {
+    class User {
         String name
         String email
         String password
+        
         changeEmail() bool
         changePassword() bool
+        checkAvailableCars(rentalLocation): Map<rentalCars>
     }
 
-    class customer {
+    class Customer {
         int age
         bool rentalAgreement
         bool rentalInsurance
         transaction[] rentalHistory
-        paymentInfo storedPayment
+        PaymentInfo storedPayment
         String currAddress
         
         getDistance(rentalLocation) double
@@ -33,16 +39,21 @@ classDiagram
         searchForLocation(currAddress) GPS
     }
     
-    class employee {
+    class Employee {
         rentalLocation location
         int employeeID
         
-        checkCustomer(Customer) void
-        checkAvailableFleet(rentalLocation) rentalCar[]
+        setRentalFee(double) void
+        getRentalFee() double
+        checkCustomer(Customer) bool
+        addAvailableCar(rentalCar) bool
+        removeAvailableCar(rentalCar) bool
+        checkCarAvailability(rentalCar) bool
+        checkAvailableFleet(rentalLocation) Map<rentalCar>
         setCPM(rentalCar, double) bool
     }
 
-    class rentalCar {
+    class RentalCar {
         String make
         String model
         String color
@@ -65,8 +76,8 @@ classDiagram
         setNumSeats(int) void
     }
     
-    class rentalLocation {
-        rentalCar[] availableCars
+    class RentalLocation {
+        Map<rentalCar> availableCars
         int numAvailableCars
         String address
         int numEmployees
@@ -74,8 +85,38 @@ classDiagram
         
         getHoursOperation() String
     }
-
-    class carBody {
+    
+    class Transaction {
+        Customer assignedCustomer
+        RentalCar desiredCar
+        RentalLocation location
+        PaymentInfo paymentMethod
+        double totalCost
+        
+        cancelTransaction() bool
+        checkRequirements(Customer) bool
+        completeTransaction() bool
+        calculateTotal(CPM, rentalFee) double
+    }
+    
+    class PaymentInfo {
+        String paymentType
+        String cardNumber
+        String cardHolder
+        int CVV
+    }
+    
+    class GPSLocation {
+        Pair<double, double> CurrentCoord
+        Pair<double, double> DestinationCoord
+        
+        getClosestRoute() double
+        setCurrentCoord(Pair<double, double>) bool
+        setDestinationCoord(Pair<double, double>) bool
+    }
+    
+    % enumerators
+    class CarBody {
         <<enumeration>>
         SEDAN
         COUPE
@@ -86,7 +127,7 @@ classDiagram
         MINIVAN
     }
 
-    class color {
+    class Color {
         <<enumeration>>
         WHITE
         BLACK
