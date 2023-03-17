@@ -100,7 +100,7 @@ classDiagram
         cancelTransaction() bool
         checkRequirements(Customer) bool
         completeTransaction() bool
-        calculateTotal(CPM, rentalFee) double
+        calculateTotal(costPerMile, rentalFee) double
     }
     
     class PaymentInfo {
