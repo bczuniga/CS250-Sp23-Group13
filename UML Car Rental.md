@@ -5,7 +5,6 @@ UML Class Diagram
 ```mermaid
 classDiagram
 
-    % Relationships
     RentalCar ..> CarBody
     RentalCar ..> Color
     RentalLocation --o "0..n" RentalCar : 0..n
@@ -107,7 +106,12 @@ classDiagram
     }
     
     class GPSLocation {
-
+        Pair<double, double> CurrentCoord
+        Pair<double, double> DestinationCoord
+        
+        getClosestRoute() double
+        setCurrentCoord(Pair<double, double>) bool
+        setDestinationCoord(Pair<double, double>) bool
     }
     
     class CarBody {
