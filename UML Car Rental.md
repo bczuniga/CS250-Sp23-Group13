@@ -17,8 +17,6 @@ classDiagram
     Customer --o "1..*" PaymentInfo : 1..*
     Customer --|> User
     Employee --|> User
-    Employee ..> RentalCar
-    Employee ..> RentalLocation
     
     class User {
         String name
