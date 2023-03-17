@@ -12,6 +12,9 @@ classDiagram
     RentalLocation --o "1..n" Employee : 1..n
     Transaction --o "1" PaymentInfo : 1
     Transaction --o "1" Customer : 1
+    Transaction --o "1" RentalCar : 1
+    Transaction --o "1" RentalLocation : 1
+    Customer --o "1" GPSLocation : 1
     Customer --|> User
     Employee --|> User
     
