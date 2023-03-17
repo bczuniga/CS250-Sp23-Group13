@@ -23,6 +23,9 @@ classDiagram
         bool rentalAgreement
         bool rentalInsurance
         transaction[] rentalHistory
+        paymentInfo storedPayment
+        String currAddress
+        
     }
     
     class employee {
