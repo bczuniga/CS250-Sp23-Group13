@@ -21,7 +21,7 @@ classDiagram
         
         changeEmail() bool
         changePassword() bool
-        checkAvailableCars(rentalLocation) Map<rentalCars>
+        checkAvailableCars(rentalLocation) Map~rentalCars~
     }
 
     class Customer {
@@ -49,7 +49,7 @@ classDiagram
         addAvailableCar(rentalCar) bool
         removeAvailableCar(rentalCar) bool
         checkCarAvailability(rentalCar) bool
-        checkAvailableFleet(rentalLocation) Map<rentalCar>
+        checkAvailableFleet(rentalLocation) Map~rentalCar~
         setCPM(rentalCar, double) bool
     }
 
@@ -107,12 +107,12 @@ classDiagram
     }
     
     class GPSLocation {
-        Pair<double, double> CurrentCoord
-        Pair<double, double> DestinationCoord
+        Pair~double, double~ CurrentCoord
+        Pair~double, double~ DestinationCoord
         
         getClosestRoute() double
-        setCurrentCoord(Pair<double, double>) bool
-        setDestinationCoord(Pair<double, double>) bool
+        setCurrentCoord(Pair~double, double~) bool
+        setDestinationCoord(Pair~double, double~) bool
     }
     
     class CarBody {
