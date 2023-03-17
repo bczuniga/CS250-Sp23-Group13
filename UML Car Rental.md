@@ -26,6 +26,7 @@ classDiagram
         paymentInfo storedPayment
         String currAddress
         
+        getDistance(rentalLocation) double
     }
     
     class employee {
