@@ -38,3 +38,5 @@ Output: Employee.checkAvailableCar(newCar) == true
 This test case should add the newCar RentalCar object to the availableCars Map located in RentalLocaton. The newCar RentalCar object’s attributes are set according to the string arguments: make is set to “Toyota”, model is set to “Hatchback”, color is set to “Black”, and carBody is set to “Standard”. First, Employee.checkAvailableCar(newCar) should return false, indicating that the RentalCar is not currently added to the availableCars map. Afterwards, the newCar object is added to the availableCars map located in the RentalLocation, which is an object of the Employee class. After the newCar is added to the availableCars map, checkAvailableCar(newCar) should return true. The test case passes for this scenario.
 
 ## System Testing
+### New customer signing up for a new account, checking nearest available vehicles, successfully renting a vehicle
+### 
