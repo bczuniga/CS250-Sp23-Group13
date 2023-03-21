@@ -1,6 +1,6 @@
 # Test Suite
 ## Unit Testing
-### Changing
+### Setting Car Make
 ```c++
 <void, setCarMake(name = “Toyota”)>
 RentalCar.make == “Toyota”
@@ -26,5 +26,15 @@ Error: Invalid input
 This test case should print an error message since the function argument, c, is not a string argument but a char argument. This error message should indicate that RentalCar.make should NOT equal ‘c’ since an incorrect type is passed as an argument to the setCarMake function. This shows that the make attribute in RentalCar class was not properly assigned.
 
 ## Integration Testing
+### Creating a new Car object and interact with Employee class
+```c++
+RentalCar newCar("Toyota", "Prius", BLACK, HATCHBACK)
+Employee.validateRentalCar(newCar)
+newCar.validCar == true
+Employee.addAvailableCar(newCar)
+
+Output: Employee.checkAvailableCar(newCar) == true
+```
+This test case should add the newCar RentalCar object to the availableCars Map located in RentalLocaton. The newCar RentalCar object’s attributes are set according to the string arguments: make is set to “Toyota”, model is set to “Hatchback”, color is set to “Black”, and carBody is set to “Standard”. First, Employee.checkAvailableCar(newCar) should return false, indicating that the RentalCar is not currently added to the availableCars map. Afterwards, the newCar object is added to the availableCars map located in the RentalLocation, which is an object of the Employee class. After the newCar is added to the availableCars map, checkAvailableCar(newCar) should return true. The test case passes for this scenario.
 
 ## System Testing
