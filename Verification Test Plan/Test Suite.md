@@ -45,6 +45,8 @@ newCar.validCar == false
 
 Output: Employee.checkAvailableCar(newCar) == false
 ```
+This test case should produce an error since the newCar object is not instantiated with proper arguments. Specifically, the make attribute for the RentalCar object is not properly set because the argument 4500 is an int value and not a string. An error message should appear saying that the newCar was not instantiated properly, so the newCar is not added to the availableCar map via the addAvailableCar(newCar) function in Employee class since it is not a valid object of the RentalCar class. Therefore, Employee.checkAvailableCar(newCar) will return false since newCar is not a valid object, thus indicating that the new car is not added to the fleet of available cars. 
+
 ## System Testing
 ### New customer signing up for a new account, checking nearest available vehicles, successfully renting a vehicle
 
