@@ -71,7 +71,8 @@ classDiagram
         int odometer
         double costPerMile
         bool validCar
-
+        
+        RentalCar(String, String, String, String) void
         isAvailable(String) bool
         getDetails() String
         setMake(String) void
