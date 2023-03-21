@@ -55,6 +55,7 @@ classDiagram
         checkCarAvailability(rentalCar) bool
         checkAvailableFleet(rentalLocation) Map<rentalCar>
         setCPM(rentalCar, double) bool
+        validateRentalCar(rentalCar) void
     }
 
     class RentalCar {
@@ -69,6 +70,7 @@ classDiagram
         Date unavailableDates
         int odometer
         double costPerMile
+        bool validCar
 
         isAvailable(String) bool
         getDetails() String
