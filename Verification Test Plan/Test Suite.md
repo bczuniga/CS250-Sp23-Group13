@@ -39,4 +39,5 @@ This test case should add the newCar RentalCar object to the availableCars Map l
 
 ## System Testing
 ### New customer signing up for a new account, checking nearest available vehicles, successfully renting a vehicle
-### 
+
+### Employee manipulating the car fleet 
