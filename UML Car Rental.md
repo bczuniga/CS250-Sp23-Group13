@@ -23,8 +23,8 @@ classDiagram
         String email
         String password
         
-        changeEmail() bool
-        changePassword() bool
+        changeEmail(String) bool
+        changePassword(String) bool
         checkAvailableCars(rentalLocation) Map<rentalCars>
     }
 
