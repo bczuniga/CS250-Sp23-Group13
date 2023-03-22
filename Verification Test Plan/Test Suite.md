@@ -49,5 +49,16 @@ This test case should produce an error since the newCar object is not instantiat
 
 ## System Testing
 ### New customer signing up for a new account, checking nearest available vehicles, successfully renting a vehicle
-
+#### Create a new customer, set name, email, password
+```
+// Assume that the database is already filled with cars, 
+Customer newCustomer(name = "Johnny", age = 26)
+newCustomer.changeEmail("johnny_appleseed@tester.com")
+newCustomer.changePassword("suP3rSecR3tP@SS")
+```
+First part of the test is to create a new customer from scratch and initialize all relevant user data: email, password, name, and age. After initial account creation, a transaction can attempt to be made
+```
+Transaction newTransaction(newCustomer, chosenCar)
+newTransaction.checkRequirements(newCustomer)
+```
 ### Employee manipulating the car fleet 
