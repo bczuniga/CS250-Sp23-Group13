@@ -36,6 +36,7 @@ classDiagram
         PaymentInfo storedPayment
         GPSLocation currLocation
         
+        Customer(name, email, password, age) void
         getDistance(rentalLocation) double
         signAgreement() bool
         updatePayment(paymentInfo() bool
