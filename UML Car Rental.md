@@ -118,6 +118,8 @@ classDiagram
         Pair<double, double> CurrentCoord
         Pair<double, double> DestinationCoord
         
+        GPSLocation(address)
+        getCoordFromAddress(String)
         getClosestRoute() double
         setCurrentCoord(Pair<double, double>) bool
         setDestinationCoord(Pair<double, double>) bool
