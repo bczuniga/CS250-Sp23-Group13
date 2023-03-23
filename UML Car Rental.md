@@ -8,13 +8,13 @@ classDiagram
     RentalCar ..> CarBody
     RentalCar ..> Color
     RentalCar ..> FuelType
-    RentalLocation --o "0..n" RentalCar : 0..n
-    RentalLocation --o "1..n" Employee : 1..n
-    Transaction --o "1" Customer : 1
-    Transaction --o "1" RentalCar : 1
-    Transaction --o "1" RentalLocation : 1
-    Customer --o "1" GPSLocation : 1
-    Customer --o "1..*" PaymentInfo : 1..*
+    RentalLocation --o "0..n" RentalCar
+    RentalLocation --o "1..n" Employee
+    Transaction --o "1" Customer
+    Transaction --o "1" RentalCar
+    Transaction --o "1" RentalLocation
+    Customer --o "1" GPSLocation
+    Customer --o "1..*" PaymentInfo
     Customer --|> User
     Employee --|> User
     
