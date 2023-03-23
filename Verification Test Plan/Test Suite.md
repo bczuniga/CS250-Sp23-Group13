@@ -97,16 +97,20 @@ This test case should produce an error since the newCar object is not instantiat
 ## System Testing
 ### Testing customer use case
 Creation of new customer account, checking nearest vehicles, successfully completing a transaction
+```c++
+// Assume that the database is already filled with cars that have been validated
+Customer newCustomer(name = "Johnny", email = "johnny_appleseed@tester.com", password = "suP3rSecR3tP@SS", age = 26)
+newCustomer.searchForLocation("5500 Campanile Dr, San Diego, CA 92182")
+
+Output: customerGPS.CurrentCord == (32.778, -117.071)
 ```
-// Assume that the database is already filled with cars, 
-Customer newCustomer(name = "Johnny", age = 26)
-newCustomer.changeEmail("johnny_appleseed@tester.com")
-newCustomer.changePassword("suP3rSecR3tP@SS")
-```
-First part of the test is to create a new customer from scratch and initialize all relevant user data: email, password, name, and age. After initial account creation, a transaction can attempt to be made
-```
+First part of the test is to create a new customer from scratch and initialize all relevant user data: email, password, name, and age. Following that is a test to make sure that the GPS object was initialized with the proper coordinates from the address provided.
+```c++
 Transaction newTransaction(newCustomer, chosenCar)
 newTransaction.checkRequirements(newCustomer)
 ```
 ### Testing employee use case
-Adding, removing, and checking
+Adding, removing, and checking current vehicle fleet
+```c++
+Employee.addAvailableCar(new RentalCar)
+```
