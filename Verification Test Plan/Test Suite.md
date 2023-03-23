@@ -1,7 +1,6 @@
 # Test Suite
 ## Unit Testing
-### Setting Car Make
-#### Test: RentalCar.setCarMake(string name)
+### Testing Unit: Car.setCarMake
 ```c++
 <void, setCarMake(name = “Toyota”)>
 RentalCar.make == “Toyota”
@@ -30,10 +29,10 @@ Error: Invalid input
 
 This test case should print an error message since the function argument, c, is not a string argument but a char argument. This error message should indicate that RentalCar.make should NOT equal ‘c’ since an incorrect type is passed as an argument to the setCarMake function. This shows that the make attribute in RentalCar class was not properly assigned.
 
+### Testing Unit: [Vincent, edit here]
 
 ## Integration Testing
-### Creating a new Car object and interact with Employee class
-#### Test:
+### Testing Integration of Employee and Car classes
 RentalCar newCar(string make, string model, string color, string bodyType)
 Employee.addAvailableCar(RentalCar)
 
@@ -93,11 +92,11 @@ Output: Employee.checkAvailableCar(newCar) == false
   
 This test case should produce an error since the newCar object is not instantiated with proper arguments. Specifically, the make, model, and bodyType attributes are assigned with string values,s but these string values do not match data that is stored inthe BeAvis central car rental database and it will not be useful to our software system. First, Employee.validateRentalCar(newCar) should set newCar’s validCar attribute to false since multiple arguments passed into the constructor do not match data that is stored in the rental database. An error message should appear saying that the arguments to the CarRental class’ constructor did not match data that is stored in the database, so the newCar is not added to the availableCar map via the addAvailableCar(newCar) function in the Employee class. Therefore, Employee.checkAvailableCar(newCar) will return false since newCar’s attributes are not accurate; If any of the string arguments to the RentalCar object creation do not match information that is stored in the database, then it should not be added to the fleet of available cars.
   
-  
+### Testing Integration of [Vincent edit here]
 
 ## System Testing
-### New customer signing up for a new account, checking nearest available vehicles, successfully renting a vehicle
-#### Create a new customer, set name, email, password
+### Testing customer use case
+Creation of new customer account, checking nearest vehicles, successfully completing a transaction
 ```
 // Assume that the database is already filled with cars, 
 Customer newCustomer(name = "Johnny", age = 26)
@@ -109,4 +108,5 @@ First part of the test is to create a new customer from scratch and initialize a
 Transaction newTransaction(newCustomer, chosenCar)
 newTransaction.checkRequirements(newCustomer)
 ```
-### Employee manipulating the car fleet 
+### Testing employee use case
+Adding, removing, and checking
