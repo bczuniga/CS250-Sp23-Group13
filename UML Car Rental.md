@@ -67,6 +67,7 @@ classDiagram
         int year
         int numSeats
         int MPG/e
+        String VIN
         String fuelType
         Date unavailableDates
         int odometer
@@ -84,6 +85,7 @@ classDiagram
         setNumSeats(int) void
         setMPG(int)
         setFuelType(String)
+        setVIN(String)
     }
     
     class RentalLocation {
