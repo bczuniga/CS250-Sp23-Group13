@@ -103,7 +103,9 @@ This test case should produce an error since the newCar object is not instantiat
 ## System Testing
 ### Testing customer use case
 > By Brendel Zuniga
+
 Creation of new customer account, and Employee verifying the customer
+
 ```c++
 // Assume that the database is already filled with cars that have been validated
 Customer validCustomer(name = "Johnny", email = "johnny_appleseed@tester.com", password = "suP3rSecR3tP@SS", age = 26)
@@ -137,10 +139,13 @@ Output:
 In order for an employee to verify a customer as a valid customer for the purposes of the transaction functions, there must be a signed agreement and a valid payment method stored.
 
 ### Testing employee use case
+> By Brendel Zuniga
+
 Adding, removing, and checking current vehicle fleet
 ```c++
 Employee.addAvailableCar(new RentalCar)
 ```
+
 
 # UML Diagram Updates
 ## Enumerations
