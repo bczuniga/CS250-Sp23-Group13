@@ -32,12 +32,14 @@ Error: Invalid input
 
 This test case should print an error message since the function argument, c, is not a string argument but a char argument. This error message should indicate that RentalCar.make should NOT equal ‘c’ since an incorrect type is passed as an argument to the setCarMake function. This shows that the make attribute in RentalCar class was not properly assigned.
 
+### Testing Unit: [Vincent edit here]
+
 ## Integration Testing
 ### Testing Integration of Employee and Car classes
-### By Cameron Cobb
+> By Cameron Cobb
 
-### RentalCar newCar(string make, string model, string color, string bodyType)
-### Employee.addAvailableCar(RentalCar)
+**RentalCar newCar(string make, string model, string color, string bodyType)**
+**Employee.addAvailableCar(RentalCar)**
 
 ```c++
 RentalCar newCar(make = "Toyota", model = "Prius", color = "BLACK", bodyType = "HATCHBACK")
@@ -96,9 +98,11 @@ Output: Employee.checkAvailableCar(newCar) == false
 This test case should produce an error since the newCar object is not instantiated with proper arguments. Specifically, the make, model, and bodyType attributes are assigned with string values,s but these string values do not match data that is stored inthe BeAvis central car rental database and it will not be useful to our software system. First, Employee.validateRentalCar(newCar) should set newCar’s validCar attribute to false since multiple arguments passed into the constructor do not match data that is stored in the rental database. An error message should appear saying that the arguments to the CarRental class’ constructor did not match data that is stored in the database, so the newCar is not added to the availableCar map via the addAvailableCar(newCar) function in the Employee class. Therefore, Employee.checkAvailableCar(newCar) will return false since newCar’s attributes are not accurate; If any of the string arguments to the RentalCar object creation do not match information that is stored in the database, then it should not be added to the fleet of available cars.
   
 ### Testing Integration of [Vincent edit here]
+> By Vincent
 
 ## System Testing
 ### Testing customer use case
+> By Brendel Zuniga
 Creation of new customer account, and Employee verifying the customer
 ```c++
 // Assume that the database is already filled with cars that have been validated
