@@ -32,10 +32,27 @@ Error: Invalid input
 
 This test case should print an error message since the function argument, c, is not a string argument but a char argument. This error message should indicate that RentalCar.make should NOT equal ‘c’ since an incorrect type is passed as an argument to the setCarMake function. This shows that the make attribute in RentalCar class was not properly assigned.
 
-### Testing Unit: [Vincent edit here]
+### Testing Unit: GPSLocation [setDestinationCoord(Pair newDestination)]
 > By Vincent Chu
 
-<!-- Vincent edit here-->
+```c++
+setDestinationCoord(newDestination = 32.7774, 117.0714)]
+```
+
+This test case should not return anything, and it will set the object DestinationCoord of the GPSLocation class to the two doubles. When this function is correctly executed, a value of true should be returned to the caller to indicate that it was successful.
+
+```c++
+setDestinationCoord(newDestination = 32.7774)]
+```
+
+This test case should not return anything, and it will return an error because a Pair is two doubles, not one. When the error message is returned, a value of false should be returned to the caller to indicate that it was unsuccessful.
+
+```c++
+setDestinationCoord(newDestination = “32.7774”, “117.0714”)]
+```
+
+This test case should not return anything, and it will return an error because a Pair is two doubles, not two Strings. When the error message is returned, a value of false should be returned to the caller to indicate that it was unsuccessful.
+
 
 ## Integration Testing
 ### Testing Integration of Employee and Car classes
@@ -100,9 +117,45 @@ Output: Employee.checkAvailableCar(newCar) == false
   
 This test case should produce an error since the newCar object is not instantiated with proper arguments. Specifically, the make, model, and bodyType attributes are assigned with string values,s but these string values do not match data that is stored inthe BeAvis central car rental database and it will not be useful to our software system. First, Employee.validateRentalCar(newCar) should set newCar’s validCar attribute to false since multiple arguments passed into the constructor do not match data that is stored in the rental database. An error message should appear saying that the arguments to the CarRental class’ constructor did not match data that is stored in the database, so the newCar is not added to the availableCar map via the addAvailableCar(newCar) function in the Employee class. Therefore, Employee.checkAvailableCar(newCar) will return false since newCar’s attributes are not accurate; If any of the string arguments to the RentalCar object creation do not match information that is stored in the database, then it should not be added to the fleet of available cars.
   
-### Testing Integration of [Vincent edit here]
-> By Vincent
+### Testing Integration of checkRequirements function of the Transaction class
+> By Vincent Chu
+  
+**Customer newCustomer(string name, string email, string password, int age)**
+**checkRequirements(newCustomer)**
 
+```c++
+Customer.Hubert(name = “Hubert”, email = “hubertsmith@yahoo.com”, password = “password”, age = 58)
+valid = checkRequirements(Hubert)
+if (valid) print(“The customer has met the requirements”)
+else print(“The customer has not met the requirements”)
+
+Output: The customer has met the requirements
+```
+
+This test case successfully checked for Hubert’s requirements and found him to have valid documentation to be able to rent a car. The variables in the customer class are all valid and his information checks out.
+
+```c++
+Customer.Barry(name = “Barry”, email = “barrywomanilow@compuserve.com”, password = “password”, age = 17)
+valid = checkRequirements(Barry)
+if (valid) print(“The customer has met the requirements”)
+else print(“The customer has not met the requirements”)
+
+Output: The customer has not met the requirements
+```
+
+This test case successfully checked for Barry’s requirements and found him to have invalid documentation to be able to rent a car. The variables in the customer class are all valid but he is not old enough to rent a car.
+  
+```c++
+Customer.Vincent(name = “Vincent”, email = “vchu5012@sdsu.edu”, password = “password”, age = “nineteen”)
+valid = checkRequirements(Vincent)
+if (valid) print(“The customer has met the requirements”)
+else print(“The customer has not met the requirements”)
+
+Output: The customer has not met the requirements
+```
+
+This test case unsuccessfully checked for Vincent’s requirements and found that his age variable was incorrectly defined as a String. The variables in the customer class are invalid so by default he cannot rent a car.
+  
 ## System Testing
 ### Testing customer use case
 > By Brendel Zuniga
