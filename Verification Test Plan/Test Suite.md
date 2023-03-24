@@ -52,7 +52,7 @@ This test case should add the newCar RentalCar object to the availableCars Map l
 
 
 ```c++
-RentalCar.newCar(make = 4500, model = “Tundra”, color = "GREY", bodyType = "TRUCK")
+RentalCar newCar(make = 4500, model = “Tundra”, color = "GREY", bodyType = "TRUCK")
 Employee.addAvailableCar(newCar)
 Employee.validateRentalCar(newCar)
 newCar.validCar == false 
@@ -63,7 +63,7 @@ Output: Employee.checkAvailableCar(newCar) == false
 This test case should produce an error since the newCar object is not instantiated with valid arguments. Specifically, the make attribute for the RentalCar object is not properly set because the argument 4500 is an int value and not a string.  First, Employee.validateRentalCar(newCar) should set newCar’s validCar attribute to false since string arguments passed into the object instantiation is not valid. This is verified by checking that newCar.validCar is equal to false. An error message should appear saying that the newCar was not instantiated properly, so the newCar is not added to the availableCar map via the addAvailableCar(newCar) function in the Employee class since it is not a valid object of the RentalCar class. Therefore, Employee.checkAvailableCar(newCar) will return false since newCar is not a valid object, thus indicating that the new car is not added to the fleet of available cars. If any of the string arguments to the RentalCar object creation are invalid based on type, then a valid object will never be instantiated and inserted as an available car in the availableCars map.
 
 ```c++
-RentalCar.newCar(make = "", model = “”, color = "", bodyType = "") >
+RentalCar newCar(make = "", model = “”, color = "", bodyType = "") >
 Employee.addAvailableCar(newCar)
 Employee.validateRentalCar(newCar)
 newCar.validCar == false 
@@ -74,7 +74,7 @@ Output: Employee.checkAvailableCar(newCar) == false
 This test case will not produce an error since the attributes of newCar will be set to null. First, the newCar RentalCar object is instantiated with null values for its attributes make, model, color, and bodyType respectively. Employee.valiateRentalCar(newCar) should set validCar attribute of newCar to false since null values for the attributes will not be useful to the system. newCar.validCar returns false, indicating that the rental car does not meet the specifications of cars in the database. Employee.checkAvailableCar(newCar) should return false since the object should not be present in the availableCars<RentalCar> map. Employee.addAvailableCar(newCar) adds the object to the avalableCars<RentalCar> map, and Employee.checkAvailableCar(newCar) should return false, which means that the newCar object was not successfully added to the fleet of available cars and that an object with nonnull and valid string values for its members should be added to the availableCars<RentalCar> map in RentalLocation via the addAvailableCar(newCar) function in Employee class.
 
 ```c++
-RentalCar.newCar(make = "Subaru", model = 500, color = 65.7, bodyType = "SEDAN")
+RentalCar newCar(make = "Subaru", model = 500, color = 65.7, bodyType = "SEDAN")
 Employee.addAvailableCar(newCar)
 Employee.validateRentalCar(newCar)
 newCar.validCar == false 
@@ -85,7 +85,7 @@ Output: Employee.checkAvailableCar(newCar) == false
 This test case should produce an error since the newCar object is not instantiated with proper arguments. Specifically, the model and color arguments are of type int and double respectively for the RentalCar object. This means that the object will not be instantiated correctly.  First, Employee.validateRentalCar(newCar) should set newCar’s validCar attribute to false since multiple arguments passed into the constructor are not valid types. An error message should appear saying that the newCar was not instantiated properly, so the newCar is not added to the availableCar map via the addAvailableCar(newCar) function in the Employee class. Therefore, Employee.checkAvailableCar(newCar) will return false since newCar is not a valid object, thus indicating that the new car is not added to the fleet of available cars. If any of the string arguments to the RentalCar object creation are invalid based on type, then a valid object will never be instantiated and inserted as an available car in the availableCars<RentalCar> map.
 
 ```c++
-RentalCar.newCar(make = "25252325gffgfdg", model = "fafxcv", color = "RED", bodyType = "fsftt352")
+RentalCar newCar(make = "25252325gffgfdg", model = "fafxcv", color = "RED", bodyType = "fsftt352")
 Employee.addAvailableCar(newCar)
 Employee.validateRentalCar(newCar)
 newCar.validCar == false 
