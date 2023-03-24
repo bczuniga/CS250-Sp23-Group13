@@ -1,3 +1,5 @@
+[Click here for UML Updates] (https://github.com/bczuniga/CS250-Sp23-Group13/blob/main/Verification%20Test%20Plan/Test%20Suite.md#uml-diagram-updates)
+
 # Test Suite
 ## Unit Testing
 ### Testing Unit: Car.setCarMake
@@ -135,6 +137,7 @@ Adding, removing, and checking current vehicle fleet
 ```c++
 Employee.addAvailableCar(new RentalCar)
 ```
+
 # UML Diagram Updates
 ## Enumerations
 We have three enumerations for CarBody, Color, and FuelType that the RentalCar class will use. Because of the variability in how an employee could input these values, we've streamlined it using these enumerations to keep it consistent across all cars.
