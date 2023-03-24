@@ -35,8 +35,9 @@ This test case should print an error message since the function argument, c, is 
 ## Integration Testing
 ### Testing Integration of Employee and Car classes
 ### By Cameron Cobb
-RentalCar newCar(string make, string model, string color, string bodyType)
-Employee.addAvailableCar(RentalCar)
+
+### RentalCar newCar(string make, string model, string color, string bodyType)
+### Employee.addAvailableCar(RentalCar)
 
 ```c++
 RentalCar newCar(make = "Toyota", model = "Prius", color = "BLACK", bodyType = "HATCHBACK")
