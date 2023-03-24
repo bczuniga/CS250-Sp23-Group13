@@ -102,30 +102,35 @@ This test case should produce an error since the newCar object is not instantiat
 Creation of new customer account, and Employee verifying the customer
 ```c++
 // Assume that the database is already filled with cars that have been validated
-Customer newCustomer(name = "Johnny", email = "johnny_appleseed@tester.com", password = "suP3rSecR3tP@SS", age = 26)
-newCustomer.searchForLocation("5500 Campanile Dr, San Diego, CA 92182")
+Customer validCustomer(name = "Johnny", email = "johnny_appleseed@tester.com", password = "suP3rSecR3tP@SS", age = 26)
+validCustomer.searchForLocation("5500 Campanile Dr, San Diego, CA 92182")
 
-Output: customerGPS.CurrentCord == (32.778, -117.071)
+Customer invalidCustomer(name = delta, email = "", password = "weakpass", age = 12)
+invalidCustomer.searchForLocation("1024 Totally Not Fake Address, ThisIsARealCity TrustMe, FK 10000")
+
+Output:
+    validCustomerGPS.CurrentCord == (32.778, -117.071)
+    invalidCustomer.CurrentCord == void
 ```
 First part of the test is to create a new customer from scratch and initialize all relevant user data: email, password, name, and age. Following that is a test to make sure that the GPS object was initialized with the proper coordinates from the address provided.
 
 ```c++
 // Assume an employee `testerEmployee` object exists
-testerEmployee.checkCustomer(newCustomer) == false
+testerEmployee.checkCustomer(validCustomer) == false
 ```
 After account creation of a customer, there are a few more steps that the customer needs to take before being able to process a transaction, namely signed the rental agreement and check the rental insurace on the account, as well as have a valid paymentInfo object. Because neither of these steps were taken before attempting to verify the customer, the employee function should return false.
 
 ```c++
-newCustomer.signAgreement()
+validCustomer.signAgreement()
 PaymentInfo businessDebit(Mastercard, "3423378501973298", "Johnny Appleseed", 123)
-newCustomer.updatePayment(businessDebit)
+validCustomer.updatePayment(businessDebit)
 
 Output: 
     storedPayment.rentalInsurance == true
     storedPayment.rentalAgreement == true
-    storedPayment.storedPayment == 
+    storedPayment.storedPayment == businessDebit
 ```
-In order for an employee to verify a customer as a valid customer for the purposes of the transaction functions, there must be a signed agreement and a valid
+In order for an employee to verify a customer as a valid customer for the purposes of the transaction functions, there must be a signed agreement and a valid payment method stored.
 
 ### Testing employee use case
 Adding, removing, and checking current vehicle fleet
