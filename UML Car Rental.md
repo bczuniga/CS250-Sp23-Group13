@@ -115,7 +115,7 @@ classDiagram
 
         PaymentInfo(paymentType, cardNumber, cardHolder) void
     }
-    note for GPSLocation "Pair<<<double>>>"
+    note for GPSLocation "Pair<<double>>"
     class GPSLocation {
         Pair<double> CurrentCoord
         
