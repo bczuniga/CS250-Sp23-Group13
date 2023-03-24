@@ -66,7 +66,7 @@ classDiagram
         String carBody
         int year
         int numSeats
-        double MPG/e
+        int MPG/e
         String fuelType
         Date unavailableDates
         int odometer
@@ -82,6 +82,7 @@ classDiagram
         setCarBody(String) void
         setYear(int) void
         setNumSeats(int) void
+        setMPG(int)
     }
     
     class RentalLocation {
