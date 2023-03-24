@@ -121,13 +121,13 @@ Output:
     validCustomerGPS.CurrentCord == (32.778, -117.071)
     invalidCustomer.CurrentCord == void
 ```
-First part of the test is to create a new customer from scratch and initialize all relevant user data: email, password, name, and age. Following that is a test to make sure that the GPS object was initialized with the proper coordinates from the address provided. On the other hand, an invalid customer would throw an error and prevent the customer from being created.
+First part of the test is to create a new customer from scratch and initialize all relevant user data: email, password, name, and age. Following that is a test to make sure that the GPS object was initialized with the proper coordinates from the address provided. On the other hand, an invalid customer would throw an error and prevent the customer from being created. Since the address provided is not a real address, there should not be any `CurrentCord` value because it couldn't be found.
 
 ```c++
 // Assume an employee `testerEmployee` object exists
 testerEmployee.checkCustomer(validCustomer) == false
 ```
-After account creation of a customer, there are a few more steps that the customer needs to take before being able to process a transaction, namely signed the rental agreement and check the rental insurace on the account, as well as have a valid paymentInfo object. Because neither of these steps were taken before attempting to verify the customer, the employee function should return false. Regardless of whether or not the customer was created properly.
+After account creation of a customer, there are a few more steps that the customer needs to take before being able to process a transaction, namely signed the rental agreement and check the rental insurace on the account, as well as have a valid paymentInfo object. Because neither of these steps were taken before attempting to verify the customer, the employee function should return false. Regardless of whether or not the customer was created properly, since the `invalidCustomer` wouldn't be created in the first place.
 
 ```c++
 validCustomer.signAgreement()
@@ -139,14 +139,20 @@ Output:
     storedPayment.rentalAgreement == true
     storedPayment.storedPayment == businessDebit
 ```
-In order for an employee to verify a customer as a valid customer for the purposes of the transaction functions, there must be a signed agreement and a valid payment method stored.
+In order for an employee to verify a customer as a valid customer for the purposes of the transaction functions, there must be a signed agreement and a valid payment method stored. A valid customer check by an employee should then pass at this point.
+
+```c++
+testerEmployee.checkCustomer(validCustomer) == true
+```
+
 
 ### Testing employee use case
 > By Brendel Zuniga
 
 Adding, removing, and checking current vehicle fleet
 ```c++
-Employee.addAvailableCar(new RentalCar)
+RentalCar RentalCar()
+Employee.addAvailableCar()
 ```
 
 
