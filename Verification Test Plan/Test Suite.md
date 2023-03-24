@@ -30,8 +30,6 @@ Error: Invalid input
 
 This test case should print an error message since the function argument, c, is not a string argument but a char argument. This error message should indicate that RentalCar.make should NOT equal ‘c’ since an incorrect type is passed as an argument to the setCarMake function. This shows that the make attribute in RentalCar class was not properly assigned.
 
-### Testing Unit: [Vincent, edit here]
-
 ## Integration Testing
 ### Testing Integration of Employee and Car classes
 ### By Cameron Cobb
@@ -41,9 +39,9 @@ This test case should print an error message since the function argument, c, is 
 
 ```c++
 RentalCar newCar(make = "Toyota", model = "Prius", color = "BLACK", bodyType = "HATCHBACK")
+Employee.addAvailableCar(newCar)
 Employee.validateRentalCar(newCar)
 newCar.validCar == true
-Employee.addAvailableCar(newCar)
 
 Output: Employee.checkAvailableCar(newCar) == true
 ```
