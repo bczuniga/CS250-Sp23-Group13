@@ -1,9 +1,9 @@
-[Click here for UML Updates] (https://github.com/bczuniga/CS250-Sp23-Group13/blob/main/Verification%20Test%20Plan/Test%20Suite.md#uml-diagram-updates)
+[Click here for UML Updates](https://github.com/bczuniga/CS250-Sp23-Group13/blob/main/Verification%20Test%20Plan/Test%20Suite.md#uml-diagram-updates)
 
 # Test Suite
 ## Unit Testing
 ### Testing Unit: Car.setCarMake
-### By Cameron Cobb
+> By Cameron Cobb
 ```c++
 <void, setCarMake(name = “Toyota”)>
 RentalCar.make == “Toyota”
