@@ -109,11 +109,23 @@ Output: customerGPS.CurrentCord == (32.778, -117.071)
 ```
 First part of the test is to create a new customer from scratch and initialize all relevant user data: email, password, name, and age. Following that is a test to make sure that the GPS object was initialized with the proper coordinates from the address provided.
 
-```
+```c++
 // Assume an employee `testerEmployee` object exists
 testerEmployee.checkCustomer(newCustomer) == false
 ```
 After account creation of a customer, there are a few more steps that the customer needs to take before being able to process a transaction, namely signed the rental agreement and check the rental insurace on the account, as well as have a valid paymentInfo object. Because neither of these steps were taken before attempting to verify the customer, the employee function should return false.
+
+```c++
+newCustomer.signAgreement()
+PaymentInfo businessDebit(Mastercard, "3423378501973298", "Johnny Appleseed", 123)
+newCustomer.updatePayment(businessDebit)
+
+Output: 
+    storedPayment.rentalInsurance == true
+    storedPayment.rentalAgreement == true
+    storedPayment.storedPayment == 
+```
+In order for an employee to verify a customer as a valid customer for the purposes of the transaction functions, there must be a signed agreement and a valid
 
 ### Testing employee use case
 Adding, removing, and checking current vehicle fleet
