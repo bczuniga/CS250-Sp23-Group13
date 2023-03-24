@@ -117,8 +117,8 @@ classDiagram
     }
     
     class GPSLocation {
-        Pair<double, double> CurrentCoord
-        Pair<double, double> DestinationCoord
+        Pair<<double, double>> CurrentCoord
+        Pair<<double, double>> DestinationCoord
         
         GPSLocation(address)
         getCoordFromAddress(String)
