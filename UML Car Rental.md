@@ -83,6 +83,7 @@ classDiagram
         setYear(int) void
         setNumSeats(int) void
         setMPG(int)
+        setFuelType(String)
     }
     
     class RentalLocation {
