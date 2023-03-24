@@ -36,19 +36,19 @@ This test case should print an error message since the function argument, c, is 
 > By Vincent Chu
 
 ```c++
-setDestinationCoord(newDestination = 32.7774, 117.0714)]
+setDestinationCoord(newDestination = 32.7774, 117.0714)
 ```
 
 This test case should not return anything, and it will set the object DestinationCoord of the GPSLocation class to the two doubles. When this function is correctly executed, a value of true should be returned to the caller to indicate that it was successful.
 
 ```c++
-setDestinationCoord(newDestination = 32.7774)]
+setDestinationCoord(newDestination = 32.7774)
 ```
 
 This test case should not return anything, and it will return an error because a Pair is two doubles, not one. When the error message is returned, a value of false should be returned to the caller to indicate that it was unsuccessful.
 
 ```c++
-setDestinationCoord(newDestination = “32.7774”, “117.0714”)]
+setDestinationCoord(newDestination = “32.7774”, “117.0714”)
 ```
 
 This test case should not return anything, and it will return an error because a Pair is two doubles, not two Strings. When the error message is returned, a value of false should be returned to the caller to indicate that it was unsuccessful.
