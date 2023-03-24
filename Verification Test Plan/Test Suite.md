@@ -1,6 +1,7 @@
 # Test Suite
 ## Unit Testing
 ### Testing Unit: Car.setCarMake
+### By Cameron Cobb
 ```c++
 <void, setCarMake(name = “Toyota”)>
 RentalCar.make == “Toyota”
@@ -33,6 +34,7 @@ This test case should print an error message since the function argument, c, is 
 
 ## Integration Testing
 ### Testing Integration of Employee and Car classes
+### By Cameron Cobb
 RentalCar newCar(string make, string model, string color, string bodyType)
 Employee.addAvailableCar(RentalCar)
 
