@@ -112,6 +112,8 @@ classDiagram
         String cardNumber
         String cardHolder
         int CVV
+
+        PaymentInfo(paymentType, cardNumber, cardHolder) void
     }
     
     class GPSLocation {
