@@ -204,8 +204,42 @@ testerEmployee.checkCustomer(validCustomer) == true
 
 Adding, removing, and checking current vehicle fleet
 ```c++
-RentalCar RentalCar()
-Employee.addAvailableCar()
+// Adding to fleet
+RentalCar validCar("Toyota", "Prius", SILVER, HATCHBACK)
+validCar.setYear(2019)
+validCar.setNumSeats(5)
+validCar.setMPG(53)
+validCar.setFuelType("HEV")
+validCar.setVIN("JT2BK12U530083835")
+
+RentalCar validTruck("Ford", "F-150 Lightning", BLACK, TRUCK)
+validTruck.setYear(2023)
+validTruck.setNumSeats(5)
+validTruck.setMPG(78)
+validTruck.setFuelType("BEV")
+validTruck.setVIN("1FTNW21L41EB18470")
+
+RentalCar invalidCar("Subuwu", "Impretzel", GOLD, SEDAN)
+invalidCar.setYear(1000)
+invalidCar.setNumSeats(-1)
+invalidCar.setMPG(-20)
+invalidCar.setFuelType("None")
+invalidCar.setVIN("21DSFJKLJF9320")
+
+validCar.getDetails()
+validTruck.getDetails()
+invalidCar.getDetails()
+Output:
+    "2019 Toyota Prius"
+    "2023 Ford F-150 Lightning"
+    "Error: invalid vehicle"
+```
+What we're testing here is if we were to try to first, create vehicles to be added to a location's fleet. In order to check if a car was successfully created, then a `.getDetails()` function would return with the proper output with included details. The function call on an invalid vehicle, or a vehicle that does not exist, would simply throw an error.
+
+```c++
+testerEmployee.validateRentalCar(validCar) == true
+testerEmployee.validateRentalCar(validTruck) == true
+testerEmployee.validateRentalCar(invalidCar) == false
 ```
 
 
