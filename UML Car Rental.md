@@ -118,7 +118,9 @@ classDiagram
     
     class GPSLocation {
         Pair<double> CurrentCoord
+        note 4 GPSLocation "double"
         Pair<double> DestinationCoord
+        note 4 GPSLocation "double"
         
         GPSLocation(address)
         getCoordFromAddress(String)
