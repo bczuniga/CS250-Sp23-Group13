@@ -204,19 +204,19 @@ testerEmployee.checkCustomer(validCustomer) == true
 
 Adding, removing, and checking current vehicle fleet
 ```c++
-// Adding to fleet
+// Adding and editing current fleet
 RentalCar validCar("Toyota", "Prius", SILVER, HATCHBACK)
 validCar.setYear(2019)
 validCar.setNumSeats(5)
 validCar.setMPG(53)
-validCar.setFuelType("HEV")
+validCar.setFuelType(HEV)
 validCar.setVIN("JT2BK12U530083835")
 
 RentalCar validTruck("Ford", "F-150 Lightning", BLACK, TRUCK)
 validTruck.setYear(2023)
 validTruck.setNumSeats(5)
 validTruck.setMPG(78)
-validTruck.setFuelType("BEV")
+validTruck.setFuelType(BEV)
 validTruck.setVIN("1FTNW21L41EB18470")
 
 RentalCar invalidCar("Subuwu", "Impretzel", GOLD, SEDAN)
@@ -226,21 +226,62 @@ invalidCar.setMPG(-20)
 invalidCar.setFuelType("None")
 invalidCar.setVIN("21DSFJKLJF9320")
 
+RentalCar inProgressCar("Toyota", "Corolla", RED, SEDAN)
+inProgressCar.setYear(2013)
+inProgressCar.setNumSeats(5)
+inProgressCar.setMPG(24)
+inProgressCar.setFuelType(GAS)
+inProgressCar.setVIN("21DSFJKLJF9320ERS9820")
+
 validCar.getDetails()
 validTruck.getDetails()
 invalidCar.getDetails()
+inProgressCar.getDetails()
 Output:
     "2019 Toyota Prius"
     "2023 Ford F-150 Lightning"
     "Error: invalid vehicle"
+    "2013 Toyota Corolla"
 ```
 What we're testing here is if we were to try to first, create vehicles to be added to a location's fleet. In order to check if a car was successfully created, then a `.getDetails()` function would return with the proper output with included details. The function call on an invalid vehicle, or a vehicle that does not exist, would simply throw an error.
 
 ```c++
+// Assuming that there exists a `testerEmployee` whose location is set to SDSU
+Employee testerEmployee(SDSU)
+
 testerEmployee.validateRentalCar(validCar) == true
 testerEmployee.validateRentalCar(validTruck) == true
 testerEmployee.validateRentalCar(invalidCar) == false
 ```
+Once the objects have been created properly, the `validateRentalCar` check should return true because all of the necessary information has been populated. It should only fail on the object that did not meet the requirements. We purposefully did not validate the Toyota Corolla because we will use it's invalidated status to test against later on.
+
+```c++
+// Assuming that there exists a rental location `SDSU` and `UCSD` with cars already in the fleet
+SDSUFleet = testerEmployee.checkAvailableFleet(SDSU)
+UCSDFleet = testerEmployee.checkAvailableFleet(UCSD)
+```
+This should return a Map of rentalCars that is associated with that specific location.
+
+```c++
+testerEmployee.addAvailableCar(validCar) == true
+testerEmployee.addAvailableCar(validTruck) == true
+testerEmployee.addAvailableCar(invalidCar) == false
+testerEmployee.addAvailableCar(inProgressCar) == false
+```
+The `addAvailableCar` function should only ever modify the testerEmployee's rentalLocation's fleet. The program should add `validCar` and `validTruck` without any issue because it's been validated by an employee. The `invalidCar` should fail because the object was not created properly, therefore making it ineligible for validation. The `inProgressCar` should also return false; even though the object was created properly with valid inputs, it has yet been validated by an employee, therefore not being able to add the vehicle to the fleet.
+
+```c++
+(SDSUFleet == testerEmployee.checkAvailableFleet(SDSU)) == false
+(UCSDFleet == testerEmployee.checkAvailableFleet(UCSD)) == true 
+```
+These two lines compare the fleet before and after cars have been added to verify that the cars were only added to the employee's fleet and not a different fleet. This also checks if they were added properly since the number of cars in the fleet should have changed
+
+```c++
+testerEmployee.removeAvailableCar(validCar) == true
+testerEmployee.removeAvailableCar(validTruck) == true
+testerEmployee.removeAvailableCar(nonExistentCar) == false
+```
+And finally, these two lines should determine whether or not the remove function works as expected; since `validCar` and `validTruck` were previously added, they could be removed without hitch. Since nonExistentCar is not in the fleet, it would return false because there's nothing to remove in the first place.
 
 
 # UML Diagram Updates
