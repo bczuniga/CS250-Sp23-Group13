@@ -283,8 +283,176 @@ testerEmployee.removeAvailableCar(nonExistentCar) == false
 ```
 And finally, these two lines should determine whether or not the remove function works as expected; since `validCar` and `validTruck` were previously added, they could be removed without hitch. Since nonExistentCar is not in the fleet, it would return false because there's nothing to remove in the first place.
 
-
 # UML Diagram Updates
+
+```mermaid
+classDiagram
+
+    RentalCar ..> CarBody
+    RentalCar ..> Color
+    RentalCar ..> FuelType
+    RentalLocation --o "0..n" RentalCar
+    RentalLocation --o "1..n" Employee
+    Transaction --o "1" Customer
+    Transaction --o "1" RentalCar
+    Transaction --o "1" RentalLocation
+    Customer --o "1" GPSLocation
+    Customer --o "1..*" PaymentInfo
+    Customer --|> User
+    Employee --|> User
+    
+    class User {
+        String name
+        String email
+        String password
+        
+        changeEmail(String) bool
+        changePassword(String) bool
+        checkAvailableCars(rentalLocation) Map<rentalCars>
+    }
+
+    class Customer {
+        int age
+        bool rentalAgreement
+        bool rentalInsurance
+        transaction[] rentalHistory
+        PaymentInfo storedPayment
+        GPSLocation currLocation
+        
+        Customer(name, email, password, age) void
+        getDistance(rentalLocation) double
+        signAgreement() bool
+        updatePayment(paymentInfo) bool
+        getRentalHistory() transaction[]
+        searchForLocation(String) GPS
+    }
+    
+    class Employee {
+        rentalLocation location
+        int employeeID
+        
+        setRentalFee(double) void
+        getRentalFee() double
+        checkCustomer(Customer) bool
+        addAvailableCar(rentalCar) bool
+        removeAvailableCar(rentalCar) bool
+        checkCarAvailability(rentalCar) bool
+        checkAvailableFleet(rentalLocation) Map<rentalCar>
+        setCPM(rentalCar, double) bool
+        validateRentalCar(rentalCar) void
+    }
+
+    class RentalCar {
+        String make
+        String model
+        String color
+        String carBody
+        int year
+        int numSeats
+        int MPG/e
+        String VIN
+        String fuelType
+        Date unavailableDates
+        int odometer
+        double costPerMile
+        bool validCar
+        
+        RentalCar(String, String, String, String) void
+        isAvailable(String) bool
+        getDetails() String
+        setMake(String) void
+        setModel(String) void
+        setColor(String) void
+        setCarBody(String) void
+        setYear(int) void
+        setNumSeats(int) void
+        setMPG(int)
+        setFuelType(String)
+        setVIN(String)
+    }
+    
+    class RentalLocation {
+        Map<rentalCar> availableCars
+        int numAvailableCars
+        String address
+        int numEmployees
+        double rentalFee
+        
+        getHoursOperation() String
+    }
+    
+    class Transaction {
+        Customer assignedCustomer
+        RentalCar desiredCar
+        RentalLocation location
+        PaymentInfo paymentMethod
+        double totalCost
+        
+        cancelTransaction() bool
+        checkRequirements(Customer) bool
+        completeTransaction() bool
+        calculateTotal(costPerMile, rentalFee) double
+    }
+    
+    class PaymentInfo {
+        String paymentType
+        String cardNumber
+        String cardHolder
+        int CVV
+
+        PaymentInfo(paymentType, cardNumber, cardHolder) void
+    }
+    note for GPSLocation "Pair is type double"
+    class GPSLocation {
+        Pair<double> CurrentCoord
+        
+        Pair<double> DestinationCoord
+        
+        GPSLocation(address)
+        getCoordFromAddress(String)
+        getClosestRoute() double
+        setCurrentCoord(Pair<double, double>) bool
+        setDestinationCoord(Pair<double, double>) bool
+    }
+    
+    class CarBody {
+        <<enumeration>>
+        SEDAN
+        COUPE
+        HATCHBACK
+        SUV
+        CROSSOVER
+        TRUCK
+        MINIVAN
+    }
+
+    class Color {
+        <<enumeration>>
+        WHITE
+        BLACK
+        GREY
+        SILVER
+        BLUE
+        RED
+        BROWN
+        GREEN
+        ORANGE
+        BEIGE
+        PURPLE
+        GOLD
+        YELLOW
+    }
+    
+    class FuelType {
+        <<enumeration>>
+        GAS
+        HEV
+        PHEV
+        BEV
+        FCEV
+}
+```
+
 ## Enumerations
 We have three enumerations for CarBody, Color, and FuelType that the RentalCar class will use. Because of the variability in how an employee could input these values, we've streamlined it using these enumerations to keep it consistent across all cars.
 ## User
