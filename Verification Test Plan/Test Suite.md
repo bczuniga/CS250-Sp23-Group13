@@ -55,7 +55,7 @@ This test case should not return anything, and it will return an error because a
 
 
 ## Integration Testing
-### Testing Integration of Employee and Car classes
+### Testing Adding A New Vehicle To Available Car Map in Employee
 > By Cameron Cobb
 
 **RentalCar newCar(string make, string model, string color, string bodyType)**
@@ -117,7 +117,7 @@ Output: Employee.checkAvailableCar(newCar) == false
   
 This test case should produce an error since the newCar object is not instantiated with proper arguments. Specifically, the make, model, and bodyType attributes are assigned with string values,s but these string values do not match data that is stored inthe BeAvis central car rental database and it will not be useful to our software system. First, Employee.validateRentalCar(newCar) should set newCar’s validCar attribute to false since multiple arguments passed into the constructor do not match data that is stored in the rental database. An error message should appear saying that the arguments to the CarRental class’ constructor did not match data that is stored in the database, so the newCar is not added to the availableCar map via the addAvailableCar(newCar) function in the Employee class. Therefore, Employee.checkAvailableCar(newCar) will return false since newCar’s attributes are not accurate; If any of the string arguments to the RentalCar object creation do not match information that is stored in the database, then it should not be added to the fleet of available cars.
   
-### Testing Integration of checkRequirements function of the Transaction class
+### Testing Checking User Requiremens With Test Customer Objects
 > By Vincent Chu
   
 **Customer newCustomer(string name, string email, string password, int age)**
@@ -157,7 +157,7 @@ Output: The customer has not met the requirements
 This test case unsuccessfully checked for Vincent’s requirements and found that his age variable was incorrectly defined as a String. The variables in the customer class are invalid so by default he cannot rent a car.
   
 ## System Testing
-### Testing customer use case
+### Testing Customer Account Creation and Process of Execution Inside Website
 > By Brendel Zuniga
 
 Creation of new customer account, and Employee verifying the customer
@@ -199,7 +199,7 @@ testerEmployee.checkCustomer(validCustomer) == true
 ```
 
 
-### Testing employee use case
+### Testing Employee Ability to Update Vehicle Fleet 
 > By Brendel Zuniga
 
 Adding, removing, and checking current vehicle fleet
